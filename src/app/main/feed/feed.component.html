@@ -1,0 +1,3 @@
+<h2 class="ui dividing header">Feed</h2>
+<app-post-list [posts]="posts"></app-post-list>
+<app-pagination (selectPage)="getPaginated($event)" [pages]="totalPages"></app-pagination>

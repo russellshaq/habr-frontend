@@ -1,0 +1,24 @@
+<div class="field" [ngClass]="{error: showErrors(), required: required}" >
+  <label>{{label}}</label>
+  <input [type]="type" [formControl]="control"/>
+</div>
+<ng-container *ngIf="showErrors()">
+  <div class="ui error message" *ngIf="control.errors.required">
+    {{label}} is required field
+  </div>
+  <div class="ui error message" *ngIf="control.errors.email">
+    {{label}} is invalid
+  </div>
+  <div class="ui error message" *ngIf="control.errors.emailTaken">
+    {{label}} is taken
+  </div>
+  <div class="ui error message" *ngIf="control.errors.minlength">
+    {{label}} is too short. Minimum length is {{control.errors.minlength.requiredLength}} chars
+  </div>
+  <div class="ui error message" *ngIf="control.errors.maxlength">
+    {{label}} is too long. Maximum length is {{control.errors.maxlength.requiredLength}} chars
+  </div>
+  <div class="ui error message" *ngIf="control.errors.pattern">
+    {{label}} must contain at least one lowercase, uppercase letter and one digit
+  </div>
+</ng-container>

@@ -1,0 +1,14 @@
+<div [class.required]="required" class="field">
+  <label>{{label}}</label>
+  <select multiple [formControl]="control" >
+    <option value="" disabled>Choose {{label}}</option>
+    <option *ngFor="let option of options" [ngValue]="option.id" >
+      {{option.name}}({{option.postCount}})
+    </option>
+  </select>
+</div>
+<ng-container *ngIf="control?.touched && control.errors">
+  <div *ngIf="control.errors.required" class="ui error message">
+     {{label}} is required
+  </div>
+</ng-container>

@@ -1,0 +1,11 @@
+<div class="ui pagination menu">
+  <a [class.disabled]="selectedPage == 0" (click)="onSelect(selectedPage - 1)" class="item">Previous</a>
+  <a *ngFor="let page of [].constructor(pages); let i = index;"
+     (click)="onSelect(i)"
+     class="item"
+     [class.active]="selectedPage == i">
+    {{i + 1}}
+  </a>
+  <a [class.disabled]="selectedPage == pages - 1" (click)="onSelect(selectedPage + 1)" class="item">Next</a>
+</div>
+

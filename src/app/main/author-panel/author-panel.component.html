@@ -1,0 +1,17 @@
+<div class="ui raised segment items">
+  <div class="item">
+    <a class="ui tiny image">
+      <img [src]="post.author.imageUrl || userImage">
+    </a>
+    <div class="content">
+      <a [routerLink]="['/user-details', post.author.id]" class="header">{{post.author.firstName}} {{post.author.lastName}}</a>
+      <div class="description">
+        <span>Rating: </span>
+        <button *ngIf="auth.signedIn && auth.user.id != post.author.id" (click)="onSubscribe()"
+                [ngClass]="{positive: !subscribed, red: subscribed}"
+                class="ui right floated button">
+          {{subscribed ? 'Unsubscribe' : 'Subscribe'}}
+        </button>
+      </div>
+    </div>
+  </div>

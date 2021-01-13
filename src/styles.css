@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('~semantic-ui-css/semantic.css');
+
+.pointer {
+  cursor: pointer;
+}
+
+.mt-1 {
+  margin-top: 10px !important;
+}
+
+.mb-1 {
+  margin-bottom: 10px !important;
+}
+
+.ui.feed > .event > .content .extra.text {
+  max-width: 700px !important;
+}
+
+.img-responsive{
+  width: 100% !important;
+}

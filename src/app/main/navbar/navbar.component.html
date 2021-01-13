@@ -1,0 +1,30 @@
+<div class="ui inverted menu navbar">
+  <div class="ui container">
+    <a routerLink="posts" class="active item">
+      Feed
+    </a>
+    <div class="ui inverted right menu">
+      <ng-container *ngIf="!auth?.signedIn">
+        <div class="item">
+          <div class="ui buttons">
+            <a routerLink="/auth" class=" ui button">Sign In</a>
+            <div class="or"></div>
+            <a routerLink="/auth/signup" class="ui small blue button">Sign Up</a>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="auth?.signedIn">
+        <div class="item">
+          <a routerLink="/main/posts/add" class="ui icon positive button"><i class="plus icon"></i></a>
+        </div>
+        <div class="item">
+          <div class="ui buttons">
+            <a [routerLink]="['/user-details', auth?.user.id]" class=" ui button">Profile</a>
+            <div class="or"></div>
+            <a class="ui red button" routerLink="/auth/signout">Sign Out</a>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

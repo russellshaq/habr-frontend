@@ -1,0 +1,13 @@
+  <app-header>Sign In</app-header>
+  <form class="ui form error" [formGroup]="signinForm">
+    <app-input [control]="signinForm.controls.email" label="Email"></app-input>
+    <app-input [control]="signinForm.controls.password" label="Password" type="password"></app-input>
+    <ng-container *ngIf="signinForm.errors">
+      <div *ngIf="signinForm.errors.commonError" class="ui error message">
+        Bad credentials
+      </div>
+    </ng-container>
+    <button (click)="onSubmit()" class="ui primary button mt-1">Sign In</button>
+    <span>Don't have an account? <a routerLink="./signup">Sign up</a></span>
+  </form>
+

@@ -1,0 +1,34 @@
+<div class="ui feed segment" *ngIf="posts.length > 0; else emptyList">
+  <ng-container *ngFor="let post of posts">
+    <div class="event">
+      <div class="label">
+        <img [src]="post.author.imageUrl">
+      </div>
+      <div class="content">
+        <div class="date">
+          {{post.createdAt | date: 'medium'}}
+        </div>
+        <div class="summary">
+          <a
+            [routerLink]="['/user-details', post.author.id]">{{post.author.firstName}} {{post.author.lastName}}</a>
+          created a post
+        </div>
+        <div class="extra text">
+          <h3>{{post.title}}</h3>
+          <div [innerHTML]="post.body" class="body"></div>
+          <a [routerLink]="['/posts', post.id]" class="ui small button mt-1">Read More...</a>
+          <a *ngIf="post.author.id === user?.id" [routerLink]="['/posts', post.id, 'delete']"
+             class="ui small red icon button">
+            <i class="trash icon"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  <div class="ui divider"></div>
+  </ng-container>
+</div>
+
+
+<ng-template #emptyList>
+  <p>Empty list</p>
+</ng-template>

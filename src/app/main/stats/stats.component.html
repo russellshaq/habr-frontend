@@ -1,0 +1,17 @@
+<span class="ui blue label tooltip">
+  <i class="eye icon"></i>23
+</span>
+
+<span class="ui blue label">
+  <i class="comments icon"></i>{{post.commentCount}}
+</span>
+
+<span (click)="bookmark(true)" class="ui blue label pointer">
+  <i class="bookmark icon"></i>{{post.bookmarkCount}}
+</span>
+
+<i (click)="vote(true)" class="arrow up icon pointer"></i>
+<span>{{post.voteCount}} </span>
+<i (click)="vote(false)" class="arrow down icon pointer"></i>
+
+

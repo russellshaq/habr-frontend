@@ -1,0 +1,23 @@
+<div class="ui secondary pointing menu">
+  <a class="item">
+    Свежее
+  </a>
+  <a class="item">
+    Популярное
+  </a>
+</div>
+<div class="ui segment">
+  <ng-container *ngFor="let post of posts">
+    <div class="content">
+      <div class="metadata">
+        <span class="date">{{post.author.firstName}} {{post.author.lastName}}</span>
+        <span class="date">{{post.createdAt | date: 'mediumDate'}}</span>
+      </div>
+      <a [routerLink]="['main', 'posts', post.id]"><h4>{{post.title}} <span class="ui label"><i
+        class="comments icon"></i>{{post.commentCount}}</span></h4>
+      </a>
+    </div>
+    <div class="ui divider"></div>
+  </ng-container>
+</div>
+

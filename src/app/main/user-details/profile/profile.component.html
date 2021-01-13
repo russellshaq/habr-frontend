@@ -1,0 +1,20 @@
+<div class="ui segment">
+  <h3 class="ui dividing header">Edit profile</h3>
+  <div class="ui grid">
+    <div class="five wide column"></div>
+    <div class="six wide column">
+      <div (click)="fileInput.click()" class="ui small image pointer">
+        <img class="ui small image" [src]="imageUrl">
+        <div class="ui bottom attached label">Replace image</div>
+      </div>
+    </div>
+    <div class="five wide column"></div>
+  </div>
+  <form class="ui error form" [formGroup]="profileForm">
+    <app-input label="First name" [control]="profileForm.controls.firstName"></app-input>
+    <app-input label="Last name" [control]="profileForm.controls.lastName"></app-input>
+    <input #fileInput style="display: none" type="file" accept="image/*" (change)="onFileChange($event)"/>
+    <button (click)="onSubmit()" class="ui primary button mt-1">Save</button>
+  </form>
+  <div *ngIf="saved" class="ui success message">Changes are saved</div>
+</div>

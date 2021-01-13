@@ -1,0 +1,38 @@
+<form class="ui form error">
+  <app-input label="Title" [control]="postForm.controls.title"></app-input>
+  <div class="field required">
+    <label>Body</label>
+    <editor
+      class="mt-1"
+      [formControl]="postForm.controls.body"
+      apiKey="jy2eu2n551uukzxir6u6rdd50prj4e3egutk7l2tl4irysvh"
+      [init]="{
+      image_class_list: [
+    {title: 'Responsive', value: 'img-responsive'}
+],
+image_dimensions: false,
+    icons: 'material',
+    height: 400,
+    menubar: false,
+    plugins: [
+      'advlist autolink lists link image charmap print',
+      'preview anchor searchreplace visualblocks code',
+      'fullscreen insertdatetime media table paste codesample',
+      'help wordcount'
+    ],
+    toolbar:
+      'bold italic | alignleft' +
+       ' aligncenter alignright alignjustify | ' +
+        'bullist numlist outdent indent | image | codesample code',
+    images_upload_url: '/api/files',
+    images_upload_handler: uploadImage
+  }"
+    >
+    </editor>
+  </div>
+  <app-select label="Topics"
+              [control]="postForm.controls.topicIds"
+              [options]="topics">
+  </app-select>
+  <button [disabled]="postForm.invalid" (click)="onSubmit()" class="ui primary button mt-1">Submit</button>
+</form>

@@ -1,0 +1,10 @@
+<ng-container *ngIf="post">
+  <div class="ui segment">
+    <app-header>{{post.title}}</app-header>
+    <div class="mb-1" [innerHTML]="post.body"></div>
+    <div class="ui divider"></div>
+    <app-stats [post]="post"></app-stats>
+  </div>
+  <app-author-panel [post]="post"></app-author-panel>
+  <app-comments [post]="post"></app-comments>
+</ng-container>
